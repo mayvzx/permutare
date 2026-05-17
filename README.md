@@ -57,10 +57,6 @@ tests_manual/ Checklists de QA manual
 - Denuncias
 - Painel administrativo para usuarios, anuncios e denuncias
 
-## Deploy no InfinityFree
-
-O deploy e manual. Consulte [docs/DEPLOY_INFINITYFREE.md](docs/DEPLOY_INFINITYFREE.md). Nao envie `.env` com senhas reais para o GitHub.
-
 ## Seguranca
 
 O projeto usa PDO com prepared statements, escape de saida com `e()`, CSRF em formularios POST, validacao de ownership, sessoes regeneradas no login, upload com MIME real e rate limit simples no login. Veja [docs/SECURITY.md](docs/SECURITY.md).
