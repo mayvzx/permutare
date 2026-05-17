@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="180" viewBox="0 0 760 180" role="img" aria-labelledby="title desc">
+  <title id="title">Permutare</title>
+  <desc id="desc">Marca do Permutare com símbolo de trocas circulares, livro aberto e nome da plataforma.</desc>
+  <defs>
+    <linearGradient id="markGradient" x1="14" y1="24" x2="146" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2C8B73"/>
+      <stop offset="0.55" stop-color="#245C4C"/>
+      <stop offset="1" stop-color="#233734"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(24 18)">
+    <rect x="0" y="0" width="144" height="144" rx="34" fill="#FFFDF6"/>
+    <rect x="1.5" y="1.5" width="141" height="141" rx="32.5" fill="none" stroke="#D9DED4" stroke-width="3"/>
+
+    <path d="M105.4 29.8C93.1 19.7 76.4 16.2 60.8 20.8C41.8 26.3 28.2 42.2 25.6 61.7"
+          fill="none" stroke="url(#markGradient)" stroke-width="13" stroke-linecap="round"/>
+    <path d="M106.3 28.4L121.6 47.1L97.3 51.3Z" fill="#D96C4A"/>
+
+    <path d="M38.6 114.2C51.2 124.7 68.4 128 84.3 122.9C102.8 117 115.9 101.2 118.4 82.3"
+          fill="none" stroke="url(#markGradient)" stroke-width="13" stroke-linecap="round"/>
+    <path d="M37.7 115.6L22.4 96.9L46.7 92.7Z" fill="#D96C4A"/>
+
+    <circle cx="51" cy="62" r="10.5" fill="#245C4C"/>
+    <circle cx="93" cy="62" r="10.5" fill="#245C4C"/>
+
+    <path d="M38 84C50.4 82.5 62.9 86.3 72 95.1V113C61.8 103.9 50.4 99.1 38 98.8Z" fill="#2C8B73"/>
+    <path d="M106 84C93.6 82.5 81.1 86.3 72 95.1V113C82.2 103.9 93.6 99.1 106 98.8Z" fill="#233734"/>
+    <path d="M72 94.8C66.3 88.6 58.8 84.9 50.6 84.1C59.8 82.6 67.1 84.5 72 90.3C76.9 84.5 84.2 82.6 93.4 84.1C85.2 84.9 77.7 88.6 72 94.8Z" fill="#F2B84B"/>
+  </g>
+
+  <g transform="translate(198 40)">
+    <text x="0" y="72"
+          font-family="Inter, Manrope, Arial, sans-serif"
+          font-size="72"
+          font-weight="850"
+          letter-spacing="0"
+          fill="#233734">Permutare</text>
+    <text x="4" y="108"
+          font-family="Inter, Manrope, Arial, sans-serif"
+          font-size="18"
+          font-weight="700"
+          letter-spacing="0"
+          fill="#66736F">trocas universitárias com confiança</text>
+  </g>
+</svg>

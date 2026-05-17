@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180" role="img" aria-labelledby="title desc">
+  <title id="title">Permutare</title>
+  <desc id="desc">Símbolo do Permutare com setas de troca e livro aberto.</desc>
+  <defs>
+    <linearGradient id="markGradient" x1="28" y1="35" x2="152" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2C8B73"/>
+      <stop offset="0.56" stop-color="#245C4C"/>
+      <stop offset="1" stop-color="#233734"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="18" y="18" width="144" height="144" rx="34" fill="#FFFDF6"/>
+  <rect x="19.5" y="19.5" width="141" height="141" rx="32.5" fill="none" stroke="#D9DED4" stroke-width="3"/>
+
+  <path d="M123.4 47.8C111.1 37.7 94.4 34.2 78.8 38.8C59.8 44.3 46.2 60.2 43.6 79.7"
+        fill="none" stroke="url(#markGradient)" stroke-width="13" stroke-linecap="round"/>
+  <path d="M124.3 46.4L139.6 65.1L115.3 69.3Z" fill="#D96C4A"/>
+
+  <path d="M56.6 132.2C69.2 142.7 86.4 146 102.3 140.9C120.8 135 133.9 119.2 136.4 100.3"
+        fill="none" stroke="url(#markGradient)" stroke-width="13" stroke-linecap="round"/>
+  <path d="M55.7 133.6L40.4 114.9L64.7 110.7Z" fill="#D96C4A"/>
+
+  <circle cx="69" cy="80" r="10.5" fill="#245C4C"/>
+  <circle cx="111" cy="80" r="10.5" fill="#245C4C"/>
+
+  <path d="M56 102C68.4 100.5 80.9 104.3 90 113.1V131C79.8 121.9 68.4 117.1 56 116.8Z" fill="#2C8B73"/>
+  <path d="M124 102C111.6 100.5 99.1 104.3 90 113.1V131C100.2 121.9 111.6 117.1 124 116.8Z" fill="#233734"/>
+  <path d="M90 112.8C84.3 106.6 76.8 102.9 68.6 102.1C77.8 100.6 85.1 102.5 90 108.3C94.9 102.5 102.2 100.6 111.4 102.1C103.2 102.9 95.7 106.6 90 112.8Z" fill="#F2B84B"/>
+</svg>
