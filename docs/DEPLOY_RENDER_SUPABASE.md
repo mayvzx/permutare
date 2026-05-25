@@ -22,6 +22,8 @@ Região: sa-east-1
 Status validado: ACTIVE_HEALTHY
 ```
 
+Para Render, use o **Session Pooler** do Supabase, não a conexão direta. Render não aceita IPv6 para conexão direta com Supabase em muitos ambientes, e o Supabase recomenda Supavisor quando o host não tem IPv6.
+
 Migrations aplicadas:
 
 ```text
@@ -60,10 +62,10 @@ APP_URL=https://SEU-SERVICO.onrender.com
 SESSION_NAME=permutare_session
 
 DB_CONNECTION=pgsql
-DB_HOST=db.obhvcrthghmdujdndgfv.supabase.co
+DB_HOST=aws-0-sa-east-1.pooler.supabase.com
 DB_PORT=5432
 DB_NAME=postgres
-DB_USER=postgres
+DB_USER=postgres.obhvcrthghmdujdndgfv
 DB_PASS=SENHA_DO_BANCO_SUPABASE
 DB_SSLMODE=require
 DB_CHARSET=utf8
@@ -83,6 +85,8 @@ database/seed.sql
 ## Observações
 
 - Supabase usa PostgreSQL, não MySQL. Por isso existem scripts SQL separados.
+- No Render, use o Session Pooler em `aws-0-sa-east-1.pooler.supabase.com` com usuário `postgres.obhvcrthghmdujdndgfv`.
+- Evite o Transaction Pooler para este PHP/PDO porque ele não suporta prepared statements da forma esperada.
 - Uploads em disco no Render podem ser efêmeros se não houver disco persistente configurado. Para produção real, o ideal é mover imagens para Supabase Storage ou configurar Persistent Disk no Render.
 - Login admin inicial:
   - E-mail: `admin@permutare.local`
