@@ -8,17 +8,15 @@ class Mensagem extends Model
 {
     public function create(array $data): int
     {
-        $stmt = $this->db->prepare(
+        return $this->insertAndReturnId(
             "INSERT INTO mensagens (proposta_id, sender_id, message, created_at)
-             VALUES (:proposta_id, :sender_id, :message, NOW())"
+             VALUES (:proposta_id, :sender_id, :message, NOW())",
+            [
+                'proposta_id' => $data['proposta_id'],
+                'sender_id' => $data['sender_id'],
+                'message' => $data['message'],
+            ]
         );
-        $stmt->execute([
-            'proposta_id' => $data['proposta_id'],
-            'sender_id' => $data['sender_id'],
-            'message' => $data['message'],
-        ]);
-
-        return (int) $this->db->lastInsertId();
     }
 
     public function findByProposta(int $propostaId): array

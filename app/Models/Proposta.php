@@ -8,18 +8,16 @@ class Proposta extends Model
 {
     public function create(array $data): int
     {
-        $stmt = $this->db->prepare(
+        return $this->insertAndReturnId(
             "INSERT INTO propostas (anuncio_id, owner_id, proposer_id, message, status, created_at, updated_at)
-             VALUES (:anuncio_id, :owner_id, :proposer_id, :message, 'pending', NOW(), NOW())"
+             VALUES (:anuncio_id, :owner_id, :proposer_id, :message, 'pending', NOW(), NOW())",
+            [
+                'anuncio_id' => $data['anuncio_id'],
+                'owner_id' => $data['owner_id'],
+                'proposer_id' => $data['proposer_id'],
+                'message' => $data['message'],
+            ]
         );
-        $stmt->execute([
-            'anuncio_id' => $data['anuncio_id'],
-            'owner_id' => $data['owner_id'],
-            'proposer_id' => $data['proposer_id'],
-            'message' => $data['message'],
-        ]);
-
-        return (int) $this->db->lastInsertId();
     }
 
     public function hasPendingDuplicate(int $anuncioId, int $proposerId): bool

@@ -9,23 +9,21 @@ class Anuncio extends Model
 {
     public function create(array $data): int
     {
-        $stmt = $this->db->prepare(
+        return $this->insertAndReturnId(
             "INSERT INTO anuncios
                 (user_id, title, description, category, item_condition, desired_item, image_path, status, views_count, created_at, updated_at)
              VALUES
-                (:user_id, :title, :description, :category, :item_condition, :desired_item, :image_path, 'active', 0, NOW(), NOW())"
+                (:user_id, :title, :description, :category, :item_condition, :desired_item, :image_path, 'active', 0, NOW(), NOW())",
+            [
+                'user_id' => $data['user_id'],
+                'title' => $data['title'],
+                'description' => $data['description'],
+                'category' => $data['category'],
+                'item_condition' => $data['item_condition'],
+                'desired_item' => $data['desired_item'],
+                'image_path' => $data['image_path'] ?? null,
+            ]
         );
-        $stmt->execute([
-            'user_id' => $data['user_id'],
-            'title' => $data['title'],
-            'description' => $data['description'],
-            'category' => $data['category'],
-            'item_condition' => $data['item_condition'],
-            'desired_item' => $data['desired_item'],
-            'image_path' => $data['image_path'] ?? null,
-        ]);
-
-        return (int) $this->db->lastInsertId();
     }
 
     public function findById(int $id): ?array

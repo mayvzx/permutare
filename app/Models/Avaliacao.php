@@ -8,19 +8,17 @@ class Avaliacao extends Model
 {
     public function create(array $data): int
     {
-        $stmt = $this->db->prepare(
+        return $this->insertAndReturnId(
             "INSERT INTO avaliacoes (proposta_id, reviewer_id, reviewed_id, rating, comment, created_at, updated_at)
-             VALUES (:proposta_id, :reviewer_id, :reviewed_id, :rating, :comment, NOW(), NOW())"
+             VALUES (:proposta_id, :reviewer_id, :reviewed_id, :rating, :comment, NOW(), NOW())",
+            [
+                'proposta_id' => $data['proposta_id'],
+                'reviewer_id' => $data['reviewer_id'],
+                'reviewed_id' => $data['reviewed_id'],
+                'rating' => $data['rating'],
+                'comment' => $data['comment'] ?? null,
+            ]
         );
-        $stmt->execute([
-            'proposta_id' => $data['proposta_id'],
-            'reviewer_id' => $data['reviewer_id'],
-            'reviewed_id' => $data['reviewed_id'],
-            'rating' => $data['rating'],
-            'comment' => $data['comment'] ?? null,
-        ]);
-
-        return (int) $this->db->lastInsertId();
     }
 
     public function findByReviewedUser(int $userId): array

@@ -8,22 +8,20 @@ class Denuncia extends Model
 {
     public function create(array $data): int
     {
-        $stmt = $this->db->prepare(
+        return $this->insertAndReturnId(
             "INSERT INTO denuncias
                 (reporter_id, reported_user_id, anuncio_id, proposta_id, reason, description, status, created_at)
              VALUES
-                (:reporter_id, :reported_user_id, :anuncio_id, :proposta_id, :reason, :description, 'pending', NOW())"
+                (:reporter_id, :reported_user_id, :anuncio_id, :proposta_id, :reason, :description, 'pending', NOW())",
+            [
+                'reporter_id' => $data['reporter_id'],
+                'reported_user_id' => $data['reported_user_id'] ?? null,
+                'anuncio_id' => $data['anuncio_id'] ?? null,
+                'proposta_id' => $data['proposta_id'] ?? null,
+                'reason' => $data['reason'],
+                'description' => $data['description'] ?? null,
+            ]
         );
-        $stmt->execute([
-            'reporter_id' => $data['reporter_id'],
-            'reported_user_id' => $data['reported_user_id'] ?? null,
-            'anuncio_id' => $data['anuncio_id'] ?? null,
-            'proposta_id' => $data['proposta_id'] ?? null,
-            'reason' => $data['reason'],
-            'description' => $data['description'] ?? null,
-        ]);
-
-        return (int) $this->db->lastInsertId();
     }
 
     public function paginate(array $filters = []): array

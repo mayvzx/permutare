@@ -16,12 +16,22 @@ class Database
         }
 
         $config = config('database');
-        $dsn = sprintf(
-            'mysql:host=%s;dbname=%s;charset=%s',
-            $config['host'],
-            $config['name'],
-            $config['charset']
-        );
+        $driver = self::driver();
+        $dsn = $driver === 'pgsql'
+            ? sprintf(
+                'pgsql:host=%s;port=%s;dbname=%s;sslmode=%s',
+                $config['host'],
+                $config['port'],
+                $config['name'],
+                $config['sslmode'] ?? 'prefer'
+            )
+            : sprintf(
+                'mysql:host=%s;port=%s;dbname=%s;charset=%s',
+                $config['host'],
+                $config['port'],
+                $config['name'],
+                $config['charset']
+            );
 
         try {
             self::$connection = new PDO($dsn, $config['user'], $config['pass'], [
@@ -39,5 +49,10 @@ class Database
         }
 
         return self::$connection;
+    }
+
+    public static function driver(): string
+    {
+        return strtolower((string) (config('database.driver') ?: 'mysql'));
     }
 }

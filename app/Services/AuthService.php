@@ -47,7 +47,7 @@ class AuthService
             $token = bin2hex(random_bytes(32));
             $stmt = $this->db->prepare(
                 "INSERT INTO email_verifications (user_id, token, expires_at, created_at)
-                 VALUES (:user_id, :token, DATE_ADD(NOW(), INTERVAL 24 HOUR), NOW())"
+                 VALUES (:user_id, :token, {$this->verificationExpirationSql()}, NOW())"
             );
             $stmt->execute([
                 'user_id' => $userId,
@@ -68,7 +68,7 @@ class AuthService
             return [
                 'success' => false,
                 'errors' => [
-                    'database' => 'Não foi possível criar a conta agora. Verifique se o MySQL está ligado no XAMPP e tente novamente.',
+                    'database' => 'Não foi possível criar a conta agora. Verifique se o banco de dados está disponível e tente novamente.',
                 ],
             ];
         }
@@ -175,7 +175,7 @@ class AuthService
         $stmt = $this->db->prepare(
             "SELECT COUNT(*) FROM login_attempts
              WHERE success = 0
-               AND attempted_at >= DATE_SUB(NOW(), INTERVAL 15 MINUTE)
+               AND attempted_at >= {$this->loginAttemptWindowSql()}
                AND (email = :email OR ip_address = :ip)"
         );
         $stmt->execute([
@@ -197,5 +197,19 @@ class AuthService
             'ip_address' => $ip,
             'success' => $success ? 1 : 0,
         ]);
+    }
+
+    private function verificationExpirationSql(): string
+    {
+        return Database::driver() === 'pgsql'
+            ? "NOW() + INTERVAL '24 hours'"
+            : 'DATE_ADD(NOW(), INTERVAL 24 HOUR)';
+    }
+
+    private function loginAttemptWindowSql(): string
+    {
+        return Database::driver() === 'pgsql'
+            ? "NOW() - INTERVAL '15 minutes'"
+            : 'DATE_SUB(NOW(), INTERVAL 15 MINUTE)';
     }
 }

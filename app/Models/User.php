@@ -59,19 +59,17 @@ class User extends Model
 
     public function create(array $data): int
     {
-        $stmt = $this->db->prepare(
+        return $this->insertAndReturnId(
             "INSERT INTO users (name, email, password_hash, role, status, created_at, updated_at)
-             VALUES (:name, :email, :password_hash, :role, :status, NOW(), NOW())"
+             VALUES (:name, :email, :password_hash, :role, :status, NOW(), NOW())",
+            [
+                'name' => $data['name'],
+                'email' => mb_strtolower(trim($data['email'])),
+                'password_hash' => $data['password_hash'],
+                'role' => $data['role'] ?? 'user',
+                'status' => $data['status'] ?? 'active',
+            ]
         );
-        $stmt->execute([
-            'name' => $data['name'],
-            'email' => mb_strtolower(trim($data['email'])),
-            'password_hash' => $data['password_hash'],
-            'role' => $data['role'] ?? 'user',
-            'status' => $data['status'] ?? 'active',
-        ]);
-
-        return (int) $this->db->lastInsertId();
     }
 
     public function createProfile(int $userId, array $data): void
