@@ -10,17 +10,43 @@ Use o repositório privado com o código completo:
 mayvzx/permutare
 ```
 
+## Supabase
+
+Projeto configurado:
+
+```text
+Nome: permutare
+Project ID: obhvcrthghmdujdndgfv
+Host: db.obhvcrthghmdujdndgfv.supabase.co
+Região: sa-east-1
+Status validado: ACTIVE_HEALTHY
+```
+
+Migrations aplicadas:
+
+```text
+create_permutare_schema
+seed_initial_admin
+```
+
+Scripts correspondentes no projeto:
+
+```text
+database/schema_postgres.sql
+database/seed_postgres.sql
+```
+
 ## Render
 
-Crie um Web Service:
+O arquivo `render.yaml` já está pronto para criar um Web Service Docker.
+
+Configuração esperada:
 
 - Runtime: Docker
 - Branch: `main`
 - Dockerfile: `Dockerfile`
 - Health check path: `/`
-- Auto deploy: opcional
-
-Render permite web services a partir de repositório Git ou Dockerfile. A própria documentação do Render recomenda Docker quando a linguagem/runtime não se encaixa nos presets nativos.
+- Auto deploy: ativo
 
 ## Variáveis de ambiente
 
@@ -34,7 +60,7 @@ APP_URL=https://SEU-SERVICO.onrender.com
 SESSION_NAME=permutare_session
 
 DB_CONNECTION=pgsql
-DB_HOST=db.SEUPROJETO.supabase.co
+DB_HOST=db.obhvcrthghmdujdndgfv.supabase.co
 DB_PORT=5432
 DB_NAME=postgres
 DB_USER=postgres
@@ -45,16 +71,9 @@ DB_CHARSET=utf8
 UPLOAD_MAX_SIZE=2097152
 ```
 
-## Supabase
+## Local
 
-Execute os scripts:
-
-```text
-database/schema_postgres.sql
-database/seed_postgres.sql
-```
-
-O projeto original local continua compatível com MySQL usando:
+O projeto local continua compatível com MySQL usando:
 
 ```text
 database/schema.sql
@@ -65,6 +84,6 @@ database/seed.sql
 
 - Supabase usa PostgreSQL, não MySQL. Por isso existem scripts SQL separados.
 - Uploads em disco no Render podem ser efêmeros se não houver disco persistente configurado. Para produção real, o ideal é mover imagens para Supabase Storage ou configurar Persistent Disk no Render.
-- O login admin inicial continua:
+- Login admin inicial:
   - E-mail: `admin@permutare.local`
   - Senha: `Admin@123456`

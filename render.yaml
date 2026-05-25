@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: permutare
+    runtime: docker
+    repo: https://github.com/mayvzx/permutare
+    branch: main
+    plan: free
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: APP_NAME
+        value: Permutare
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: SESSION_NAME
+        value: permutare_session
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        value: db.obhvcrthghmdujdndgfv.supabase.co
+      - key: DB_PORT
+        value: "5432"
+      - key: DB_NAME
+        value: postgres
+      - key: DB_USER
+        value: postgres
+      - key: DB_SSLMODE
+        value: require
+      - key: DB_CHARSET
+        value: utf8
+      - key: UPLOAD_MAX_SIZE
+        value: "2097152"
+      - key: DB_PASS
+        sync: false
+      - key: APP_URL
+        sync: false
