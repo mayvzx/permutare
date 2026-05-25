@@ -1,12 +1,14 @@
-<?php
+﻿<?php
 $unreadMessages = auth_check() ? (new \App\Models\Mensagem())->countUnread(auth_id()) : 0;
 ?>
 <header class="site-header">
     <div class="container header-inner">
         <a class="brand" href="<?= e(url('/')) ?>">
-            <img class="brand-logo" src="<?= e(versioned_asset('img/logo-permutare.svg')) ?>" alt="Permutare">
+            <img class="brand-logo" src="<?= e(versioned_asset('img/brand/permutare-logo-horizontal.svg')) ?>" alt="Permutare">
         </a>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-label="Abrir menu">&#9776;</button>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+        </button>
         <nav class="nav" data-nav>
             <a href="<?= e(url('/anuncios')) ?>">Explorar</a>
             <?php if (auth_check()): ?>
@@ -31,3 +33,4 @@ $unreadMessages = auth_check() ? (new \App\Models\Mensagem())->countUnread(auth_
         </nav>
     </div>
 </header>
+

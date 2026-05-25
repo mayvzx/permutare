@@ -2,7 +2,7 @@
 
 ## Ideia geral
 
-O InfinityFree e hospedagem compartilhada. A v1.0 foi pensada para funcionar sem Composer obrigatorio, sem terminal no servidor e sem workers.
+O InfinityFree e hospedagem compartilhada. O projeto foi pensado para funcionar sem Composer obrigatorio, sem terminal no servidor e sem workers.
 
 ## Passos
 
@@ -32,4 +32,4 @@ DB_CHARSET=utf8mb4
 - Se a hospedagem apontar para a raiz do projeto, o `.htaccess` redireciona para `public/`.
 - Se a hospedagem permitir escolher a pasta publica, aponte diretamente para `public/`.
 - Uploads ficam em `storage/uploads` e sao servidos por rota PHP controlada.
-- O envio real de e-mail nao esta implementado na v1.0; o token existe e pode ser integrado depois.
+- O envio real de e-mail nao esta implementado; o token existe e pode ser integrado depois.

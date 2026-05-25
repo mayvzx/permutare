@@ -1,0 +1,13 @@
+﻿<svg width="340" height="72" viewBox="0 0 340 72" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">Permutare</title>
+  <rect x="4" y="4" width="64" height="64" rx="18" fill="#123B34"/>
+  <path d="M51.1 22.6C46.3 17.2 38.6 14.6 31.2 16.8C23.8 19 18.9 25.2 18.2 32.3" stroke="#4FC39A" stroke-width="5" stroke-linecap="round"/>
+  <path d="M47 15.8L53.4 23.9L43.3 25.2" fill="#4FC39A"/>
+  <path d="M20.9 49.4C25.7 54.8 33.4 57.4 40.8 55.2C48.2 53 53.1 46.8 53.8 39.7" stroke="#E8B44A" stroke-width="5" stroke-linecap="round"/>
+  <path d="M25 56.2L18.6 48.1L28.7 46.8" fill="#E8B44A"/>
+  <path d="M23 35.6C29 35.6 32.8 37.5 35.8 41.5C38.8 37.5 42.6 35.6 48.6 35.6V46.7C42.7 46.7 39 48.6 35.8 52.9C32.6 48.6 28.9 46.7 23 46.7V35.6Z" fill="#F9F4E8"/>
+  <circle cx="27.7" cy="28.5" r="4.4" fill="#F9F4E8"/>
+  <circle cx="43.9" cy="28.5" r="4.4" fill="#F9F4E8"/>
+  <text x="91" y="50" fill="#123B34" font-family="Trebuchet MS, Arial, sans-serif" font-size="42" font-weight="800" letter-spacing="0">Permutare</text>
+</svg>
+

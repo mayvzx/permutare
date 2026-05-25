@@ -13,6 +13,7 @@ const nav = document.querySelector("[data-nav]");
 if (navToggle && nav) {
   navToggle.addEventListener("click", () => {
     nav.classList.toggle("is-open");
+    navToggle.setAttribute("aria-expanded", nav.classList.contains("is-open") ? "true" : "false");
   });
 }
 

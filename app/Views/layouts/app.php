@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= e($pageTitle) ?></title>
+    <link rel="icon" href="<?= e(versioned_asset('img/brand/favicon.svg')) ?>" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="<?= e(versioned_asset('img/brand/apple-touch-icon.png')) ?>">
     <link rel="stylesheet" href="<?= e(versioned_asset('css/reset.css')) ?>">
     <link rel="stylesheet" href="<?= e(versioned_asset('css/variables.css')) ?>">
     <link rel="stylesheet" href="<?= e(versioned_asset('css/components.css')) ?>">

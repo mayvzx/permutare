@@ -1,6 +1,6 @@
 # Permutare
 
-Marketplace universitario de permutas feito em PHP puro, MySQL e MVC simples. A v1.0 cobre o ciclo principal: cadastro, login, anuncios, propostas, chat apos aceite, conclusao de troca, avaliacoes, reputacao, denuncias e painel admin.
+Marketplace universitario de permutas feito em PHP puro, MySQL e MVC simples. O projeto cobre o ciclo principal: cadastro, login, anuncios, propostas, chat apos aceite, conclusao de troca, avaliacoes, reputacao, denuncias e painel admin.
 
 ## Tecnologias
 
@@ -43,7 +43,7 @@ storage/      Uploads e logs protegidos
 tests_manual/ Checklists de QA manual
 ```
 
-## Funcionalidades da v1.0
+## Funcionalidades
 
 - Cadastro, login, logout e verificacao simples por token
 - Perfil publico e edicao de perfil

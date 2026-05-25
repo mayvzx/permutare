@@ -6,8 +6,8 @@
 }
 
 .site-header {
-  background: rgba(255, 254, 250, 0.9);
-  border-bottom: 1px solid rgba(35, 55, 52, 0.12);
+  background: rgba(255, 250, 240, 0.9);
+  border-bottom: 1px solid rgba(18, 59, 52, 0.14);
   backdrop-filter: blur(16px);
   position: sticky;
   top: 0;
@@ -25,7 +25,7 @@
 .brand {
   align-items: center;
   display: inline-flex;
-  height: 50px;
+  height: 48px;
   overflow: hidden;
   text-decoration: none;
 }
@@ -37,10 +37,10 @@
 .brand .brand-logo,
 .auth-brand .brand-logo {
   border-radius: 0;
-  height: 54px;
+  height: 48px;
   object-fit: contain;
   object-position: center;
-  width: 228px;
+  width: 230px;
 }
 
 .nav {
@@ -52,9 +52,10 @@
 .nav a {
   border-radius: 999px;
   color: var(--color-text);
+  font-size: 0.94rem;
   font-weight: 800;
   min-height: 38px;
-  padding: 8px 4px;
+  padding: 8px 6px;
   text-decoration: none;
   transition: color 0.2s ease, background 0.2s ease;
 }
@@ -74,18 +75,18 @@
 }
 
 .nav a.btn-primary {
-  background: var(--color-accent);
-  border: 1px solid rgba(121, 47, 30, 0.12);
+  background: var(--color-primary-dark);
+  border: 1px solid rgba(18, 59, 52, 0.2);
   border-radius: var(--radius-sm);
-  box-shadow: 0 8px 18px rgba(217, 108, 74, 0.18);
+  box-shadow: 0 9px 18px rgba(18, 59, 52, 0.18);
   color: #fff;
   min-height: 42px;
   padding: 10px 16px;
 }
 
 .nav a.btn-primary:hover {
-  background: #bf5537;
-  box-shadow: 0 12px 24px rgba(217, 108, 74, 0.24);
+  background: var(--color-primary);
+  box-shadow: 0 12px 24px rgba(18, 59, 52, 0.22);
   color: #fff;
   transform: translateY(-1px);
 }
@@ -100,13 +101,21 @@
   width: 42px;
 }
 
+.nav-toggle span {
+  background: var(--color-ink);
+  display: block;
+  height: 2px;
+  margin: 3px auto;
+  width: 18px;
+}
+
 .main {
   min-height: calc(100vh - 152px);
   padding: 34px 0 68px;
 }
 
 .site-footer {
-  background: var(--color-secondary);
+  background: var(--color-primary-dark);
   color: #fff;
 }
 
@@ -125,6 +134,15 @@
   justify-content: center;
   min-height: 100vh;
   padding: 24px;
+  position: relative;
+}
+
+.auth-body::before {
+  background: linear-gradient(90deg, rgba(247, 241, 223, 0.9), rgba(247, 241, 223, 0.64)), url("../img/generated/permutare-auth-bg.webp") center / cover;
+  content: "";
+  inset: 0;
+  position: fixed;
+  z-index: -1;
 }
 
 .auth-shell {
@@ -138,8 +156,8 @@
 }
 
 .auth-brand .brand-logo {
-  height: 70px;
-  width: 300px;
+  height: 62px;
+  width: 260px;
 }
 
 .admin-layout {
@@ -178,8 +196,10 @@
 
 @media (max-width: 860px) {
   .nav-toggle {
-    display: inline-grid;
-    place-items: center;
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .nav {
@@ -201,7 +221,7 @@
   }
 
   .brand .brand-logo {
-    width: 190px;
+    width: 196px;
   }
 
   .admin-layout,
@@ -225,8 +245,8 @@
   }
 
   .brand .brand-logo {
-    height: 48px;
-    width: 166px;
+    height: 44px;
+    width: 174px;
   }
 
   .main {

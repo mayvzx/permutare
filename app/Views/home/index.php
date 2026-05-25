@@ -2,12 +2,17 @@
     <div class="hero-copy">
         <p class="eyebrow">Trocas dentro da comunidade acadêmica</p>
         <h1>O quadro de trocas da sua universidade.</h1>
-        <p>Encontre livros, eletrônicos, materiais e serviços acadêmicos com pessoas do seu campus, combinando tudo com chat interno, reputação e moderação.</p>
+        <p>Encontre livros, eletrônicos, materiais e serviços acadêmicos com pessoas do seu campus. Combine propostas pelo chat interno, consulte reputação e mantenha seus dados pessoais fora do feed público.</p>
         <div class="actions">
             <a class="btn btn-primary" href="<?= e(url('/anuncios')) ?>">Explorar anúncios</a>
             <?php if (!auth_check()): ?>
                 <a class="btn btn-secondary" href="<?= e(url('/cadastro')) ?>">Criar conta</a>
             <?php endif; ?>
+        </div>
+        <div class="hero-proof" aria-label="Diferenciais do Permutare">
+            <span>Chat após aceite</span>
+            <span>Reputação visível</span>
+            <span>Moderação da comunidade</span>
         </div>
     </div>
 

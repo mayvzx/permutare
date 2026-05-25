@@ -211,3 +211,29 @@ O Permutare deve ficar entre o academico e o comunitario:
 - [ ] Textos de seguranca aparecem no detalhe do anuncio e chat.
 - [ ] Mobile tem prioridade real no layout.
 - [ ] A interface nao depende de uma unica cor para comunicar status.
+
+## Assets implementados
+
+Os assets finais da marca ficam em:
+
+```text
+public/assets/img/brand/permutare-symbol.svg
+public/assets/img/brand/permutare-logo-horizontal.svg
+public/assets/img/brand/permutare-logo-stacked.svg
+public/assets/img/brand/permutare-logo-light.svg
+public/assets/img/brand/permutare-logo-dark.svg
+public/assets/img/brand/favicon.svg
+public/assets/img/brand/apple-touch-icon.png
+```
+
+Os assets de apoio gerados para a interface ficam em:
+
+```text
+public/assets/img/generated/permutare-hero-bg.webp
+public/assets/img/generated/permutare-auth-bg.webp
+public/assets/img/generated/permutare-placeholder-item.webp
+public/assets/img/generated/permutare-pattern.webp
+public/assets/img/generated/permutare-logo-concept-imagegen.png
+```
+
+O conceito visual foi explorado com Image Gen e recriado em SVG limpo para uso real no produto. A geracao com Nano Banana ficou bloqueada porque `GEMINI_API_KEY` nao esta configurada no ambiente.

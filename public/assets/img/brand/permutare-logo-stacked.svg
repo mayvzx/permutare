@@ -1,0 +1,17 @@
+<svg width="180" height="220" viewBox="0 0 180 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">Permutare</title>
+  <use href="#symbol"/>
+  <text x="90" y="178" text-anchor="middle" fill="#123B34" font-family="Trebuchet MS, Arial, sans-serif" font-size="30" font-weight="800">Permutare</text>
+  <defs>
+    <g id="symbol">
+      <rect x="42" y="18" width="96" height="96" rx="24" fill="#123B34"/>
+      <path d="M112.6 46.4C105.8 38.7 94.8 35 84.2 38.2C73.7 41.3 66.7 50.2 65.8 60.2" stroke="#4FC39A" stroke-width="7" stroke-linecap="round"/>
+      <path d="M106.8 36.7L116 48.2L101.6 50.1" fill="#4FC39A"/>
+      <path d="M67.4 85.6C74.2 93.3 85.2 97 95.8 93.8C106.3 90.7 113.3 81.8 114.2 71.8" stroke="#E8B44A" stroke-width="7" stroke-linecap="round"/>
+      <path d="M73.2 95.3L64 83.8L78.4 81.9" fill="#E8B44A"/>
+      <path d="M72 65.5C80.5 65.5 85.9 68.2 90 73.8C94.1 68.2 99.5 65.5 108 65.5V81.2C99.7 81.2 94.4 83.9 90 90C85.6 83.9 80.3 81.2 72 81.2V65.5Z" fill="#F9F4E8"/>
+      <circle cx="78.5" cy="55.5" r="6.5" fill="#F9F4E8"/>
+      <circle cx="101.5" cy="55.5" r="6.5" fill="#F9F4E8"/>
+    </g>
+  </defs>
+</svg>

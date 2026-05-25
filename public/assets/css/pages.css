@@ -1,9 +1,9 @@
 .campus-hero {
   align-items: center;
   background:
-    linear-gradient(135deg, rgba(35, 55, 52, 0.98), rgba(36, 92, 76, 0.93)),
-    var(--color-secondary);
-  border: 1px solid rgba(35, 55, 52, 0.16);
+    linear-gradient(90deg, rgba(18, 59, 52, 0.98) 0%, rgba(18, 59, 52, 0.92) 42%, rgba(18, 59, 52, 0.55) 100%),
+    url("../img/generated/permutare-hero-bg.webp") center / cover;
+  border: 1px solid rgba(18, 59, 52, 0.22);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
   color: #fff;
@@ -11,7 +11,7 @@
   gap: 44px;
   grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
   margin-bottom: 28px;
-  min-height: 520px;
+  min-height: 560px;
   overflow: hidden;
   padding: clamp(30px, 5vw, 60px);
   position: relative;
@@ -19,9 +19,10 @@
 
 .campus-hero::before {
   background:
+    radial-gradient(circle at 20% 20%, rgba(232, 180, 74, 0.24), transparent 18rem),
     linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
-  background-size: 28px 28px;
+  background-size: auto, 28px 28px, 28px 28px;
   content: "";
   inset: 0;
   opacity: 0.75;
@@ -39,7 +40,7 @@
 
 .hero h1 {
   color: #fff;
-  font-size: clamp(2.55rem, 5.4vw, 5.2rem);
+  font-size: clamp(2.8rem, 5.4vw, 5.55rem);
   letter-spacing: 0;
   line-height: 0.98;
   margin: 0 0 20px;
@@ -49,6 +50,24 @@
   color: rgba(255, 255, 255, 0.82);
   font-size: 1.08rem;
   max-width: 640px;
+}
+
+.hero-proof {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.hero-proof span {
+  background: rgba(249, 244, 232, 0.12);
+  border: 1px solid rgba(249, 244, 232, 0.22);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.86rem;
+  font-weight: 800;
+  padding: 8px 12px;
 }
 
 .eyebrow,
@@ -85,9 +104,9 @@
 
 .board-card {
   animation: floatCard 5.5s ease-in-out infinite;
-  background: var(--color-paper);
+  background: rgba(255, 253, 247, 0.94);
   border: 1px solid rgba(27, 37, 35, 0.12);
-  border-radius: var(--radius-md);
+  border-radius: 10px;
   box-shadow: var(--shadow-lg);
   color: var(--color-text);
   justify-self: start;
@@ -96,6 +115,16 @@
   position: relative;
   transform: rotate(-1deg);
   width: 82%;
+}
+
+.board-card::after {
+  background: repeating-linear-gradient(90deg, rgba(18, 59, 52, 0.08) 0 1px, transparent 1px 7px);
+  bottom: 14px;
+  content: "";
+  height: 9px;
+  left: 20px;
+  position: absolute;
+  right: 20px;
 }
 
 .board-card::before {
@@ -162,7 +191,7 @@
 }
 
 .campus-strip {
-  background: var(--color-surface);
+  background: rgba(255, 250, 240, 0.88);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
@@ -226,7 +255,7 @@
 }
 
 .info-card {
-  background: rgba(255, 254, 250, 0.92);
+  background: rgba(255, 250, 240, 0.92);
   border-top: 0;
   overflow: hidden;
   position: relative;
@@ -260,7 +289,7 @@
 
 .category-list a {
   align-items: center;
-  background: var(--color-surface);
+  background: var(--color-paper);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   color: var(--color-secondary);
@@ -275,8 +304,8 @@
 }
 
 .category-list a:hover {
-  background: var(--color-secondary);
-  border-color: var(--color-secondary);
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
   color: #fff;
   transform: translateY(-2px);
 }
@@ -299,7 +328,7 @@
 
 .anuncio-card-image {
   aspect-ratio: 4 / 3;
-  background: var(--color-surface-muted);
+  background: var(--color-surface-muted) url("../img/generated/permutare-placeholder-item.webp") center / cover;
   display: block;
 }
 
@@ -339,7 +368,8 @@
 .trust-band {
   align-items: center;
   background:
-    linear-gradient(135deg, var(--color-paper), var(--color-surface));
+    linear-gradient(135deg, rgba(255, 253, 247, 0.96), rgba(244, 234, 209, 0.92)),
+    url("../img/generated/permutare-pattern.webp") center / 360px;
   border: 1px solid var(--color-border);
   border-left: 6px solid var(--color-accent);
   border-radius: var(--radius-md);
@@ -362,7 +392,7 @@
 
 .filters {
   align-items: center;
-  background: rgba(255, 254, 250, 0.82);
+  background: rgba(255, 250, 240, 0.86);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   display: grid;
@@ -451,11 +481,26 @@
 .auth-card {
   margin: 0 auto;
   max-width: 460px;
-  padding: 26px;
+  padding: 30px;
+  position: relative;
+}
+
+.auth-card::before {
+  background: var(--color-gold);
+  content: "";
+  height: 5px;
+  inset: 0 0 auto;
+  position: absolute;
 }
 
 .auth-card-wide {
   max-width: 760px;
+}
+
+.auth-card-wide .checkbox-line,
+.auth-card-wide .btn-full,
+.auth-card-wide .auth-switch {
+  grid-column: 1 / -1;
 }
 
 .auth-card h1 {
@@ -545,6 +590,13 @@
 
 .message-own .message-bubble {
   background: var(--color-primary-light);
+  border: 1px solid rgba(27, 139, 114, 0.16);
+}
+
+.brand-assets-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .message-bubble p {
@@ -667,7 +719,7 @@
 
 @media (max-width: 680px) {
   .campus-hero {
-    padding: 28px;
+    padding: 28px 22px;
   }
 
   .hero h1 {

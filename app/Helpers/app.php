@@ -72,7 +72,7 @@ function versioned_asset(string $path): string
 function upload_url(?string $path): string
 {
     if (!$path) {
-        return asset('img/placeholder-item.svg');
+        return versioned_asset('img/generated/permutare-placeholder-item.webp');
     }
 
     return url('uploads/' . ltrim($path, '/'));
