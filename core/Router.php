@@ -26,6 +26,10 @@ class Router
         $method = $request->method();
         $path = $request->path();
 
+        if ($method === 'HEAD') {
+            $method = 'GET';
+        }
+
         foreach ($this->routes as $route) {
             $params = $this->match($route['path'], $path);
 

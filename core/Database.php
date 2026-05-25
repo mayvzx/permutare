@@ -40,6 +40,17 @@ class Database
                 PDO::ATTR_EMULATE_PREPARES => false,
             ]);
         } catch (PDOException $exception) {
+            error_log(sprintf(
+                '[Permutare] Database connection failed. driver=%s host=%s port=%s db=%s user=%s sslmode=%s error=%s',
+                $driver,
+                (string) ($config['host'] ?? ''),
+                (string) ($config['port'] ?? ''),
+                (string) ($config['name'] ?? ''),
+                (string) ($config['user'] ?? ''),
+                (string) ($config['sslmode'] ?? ''),
+                $exception->getMessage()
+            ));
+
             if (config('app.debug')) {
                 throw $exception;
             }

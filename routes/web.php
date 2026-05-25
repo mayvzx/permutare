@@ -14,6 +14,7 @@ use App\Controllers\MediaController;
 use App\Controllers\PerfilController;
 use App\Controllers\PropostaController;
 
+$router->get('/health', [HomeController::class, 'health']);
 $router->get('/', [HomeController::class, 'index']);
 $router->get('/uploads/{folder}/{filename}', [MediaController::class, 'show']);
 

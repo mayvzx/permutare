@@ -5,7 +5,7 @@ services:
     repo: https://github.com/mayvzx/permutare
     branch: main
     plan: free
-    healthCheckPath: /
+    healthCheckPath: /health
     autoDeploy: true
     envVars:
       - key: APP_NAME
