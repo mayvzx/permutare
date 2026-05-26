@@ -2,9 +2,9 @@
 
 Este projeto pode rodar no Render como Web Service Docker e usar Supabase como banco PostgreSQL.
 
-## Repositório
+## Repositorio
 
-Use o repositório privado com o código completo:
+Use o repositorio privado com o codigo completo:
 
 ```text
 mayvzx/permutare
@@ -17,12 +17,20 @@ Projeto configurado:
 ```text
 Nome: permutare
 Project ID: obhvcrthghmdujdndgfv
-Host: db.obhvcrthghmdujdndgfv.supabase.co
-Região: sa-east-1
+Host direto: db.obhvcrthghmdujdndgfv.supabase.co
+Regiao: sa-east-1
 Status validado: ACTIVE_HEALTHY
 ```
 
-Para Render, use o **Session Pooler** do Supabase, não a conexão direta. Render não aceita IPv6 para conexão direta com Supabase em muitos ambientes, e o Supabase recomenda Supavisor quando o host não tem IPv6.
+Para Render, use o **Session Pooler** do Supabase. A conexao direta do Supabase pode depender de IPv6, e o Render normalmente precisa de uma conexao compativel com IPv4.
+
+Nao tente adivinhar o host do pooler. Copie o valor exato em:
+
+```text
+Supabase Dashboard > Project > Connect > Session pooler
+```
+
+O erro `tenant/user not found` geralmente significa que o usuario `postgres.<project-ref>` foi usado no host errado do pooler.
 
 Migrations aplicadas:
 
@@ -40,19 +48,19 @@ database/seed_postgres.sql
 
 ## Render
 
-O arquivo `render.yaml` já está pronto para criar um Web Service Docker.
+O arquivo `render.yaml` esta pronto para criar um Web Service Docker.
 
-Configuração esperada:
+Configuracao esperada:
 
 - Runtime: Docker
 - Branch: `main`
 - Dockerfile: `Dockerfile`
-- Health check path: `/`
+- Health check path: `/health`
 - Auto deploy: ativo
 
-## Variáveis de ambiente
+## Variaveis de ambiente
 
-Configure no Render:
+Opcao recomendada: configure `DATABASE_URL` com a string oficial do **Session Pooler** copiada do painel do Supabase.
 
 ```env
 APP_NAME=Permutare
@@ -61,33 +69,42 @@ APP_DEBUG=false
 APP_URL=https://SEU-SERVICO.onrender.com
 SESSION_NAME=permutare_session
 
-DB_CONNECTION=pgsql
-DB_HOST=aws-0-sa-east-1.pooler.supabase.com
-DB_PORT=5432
-DB_NAME=postgres
-DB_USER=postgres.obhvcrthghmdujdndgfv
-DB_PASS=SENHA_DO_BANCO_SUPABASE
-DB_SSLMODE=require
-DB_CHARSET=utf8
+DATABASE_URL=postgres://postgres.PROJECT_REF:SENHA_URL_ENCODED@HOST_EXATO_DO_SESSION_POOLER:5432/postgres?sslmode=require
 
 UPLOAD_MAX_SIZE=2097152
 ```
 
+Se a senha tiver caracteres especiais, como `@`, `#`, `%`, `/` ou espaco, eles precisam estar codificados na URL. Exemplo: `@` vira `%40`.
+
+Opcao alternativa: configurar variaveis separadas.
+
+```env
+DB_CONNECTION=pgsql
+DB_HOST=HOST_EXATO_DO_SESSION_POOLER
+DB_PORT=5432
+DB_NAME=postgres
+DB_USER=USUARIO_EXATO_DO_SESSION_POOLER
+DB_PASS=SENHA_DO_BANCO_SUPABASE
+DB_SSLMODE=require
+DB_CHARSET=utf8
+```
+
+Use apenas o host e o usuario exibidos no bloco **Session pooler** do Supabase. Nao use o Transaction Pooler para este projeto, porque ele pode causar problemas com prepared statements em PDO.
+
 ## Local
 
-O projeto local continua compatível com MySQL usando:
+O projeto local continua compativel com MySQL usando:
 
 ```text
 database/schema.sql
 database/seed.sql
 ```
 
-## Observações
+## Observacoes
 
-- Supabase usa PostgreSQL, não MySQL. Por isso existem scripts SQL separados.
-- No Render, use o Session Pooler em `aws-0-sa-east-1.pooler.supabase.com` com usuário `postgres.obhvcrthghmdujdndgfv`.
-- Evite o Transaction Pooler para este PHP/PDO porque ele não suporta prepared statements da forma esperada.
-- Uploads em disco no Render podem ser efêmeros se não houver disco persistente configurado. Para produção real, o ideal é mover imagens para Supabase Storage ou configurar Persistent Disk no Render.
+- Supabase usa PostgreSQL, nao MySQL. Por isso existem scripts SQL separados.
+- O endpoint `/health` nao valida banco; ele serve apenas para o Render confirmar que o container subiu.
+- Uploads em disco no Render podem ser efemeros se nao houver disco persistente configurado. Para producao real, o ideal e mover imagens para Supabase Storage ou configurar Persistent Disk no Render.
 - Login admin inicial:
   - E-mail: `admin@permutare.local`
   - Senha: `Admin@123456`

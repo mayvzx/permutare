@@ -16,16 +16,18 @@ services:
         value: "false"
       - key: SESSION_NAME
         value: permutare_session
+      - key: DATABASE_URL
+        sync: false
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
-        value: aws-0-sa-east-1.pooler.supabase.com
+        sync: false
       - key: DB_PORT
         value: "5432"
       - key: DB_NAME
         value: postgres
       - key: DB_USER
-        value: postgres.obhvcrthghmdujdndgfv
+        sync: false
       - key: DB_SSLMODE
         value: require
       - key: DB_CHARSET
