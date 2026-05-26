@@ -13,11 +13,21 @@
         </label>
         <label>
             Senha
-            <input type="password" name="password" required minlength="8">
+            <span class="password-field">
+                <input type="password" name="password" required minlength="8" data-password-input>
+                <button class="password-toggle" type="button" data-password-toggle aria-label="Mostrar senha" aria-pressed="false">
+                    <span aria-hidden="true">Ver</span>
+                </button>
+            </span>
         </label>
         <label>
             Confirmar senha
-            <input type="password" name="password_confirmation" required minlength="8">
+            <span class="password-field">
+                <input type="password" name="password_confirmation" required minlength="8" data-password-input>
+                <button class="password-toggle" type="button" data-password-toggle aria-label="Mostrar senha" aria-pressed="false">
+                    <span aria-hidden="true">Ver</span>
+                </button>
+            </span>
         </label>
         <label>
             Instituição

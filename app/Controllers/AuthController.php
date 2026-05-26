@@ -30,7 +30,7 @@ class AuthController extends Controller
         } catch (\Throwable $exception) {
             error_log('[Permutare] Falha no login: ' . $exception->getMessage());
             set_old($_POST);
-            flash('error', 'Não foi possível entrar agora. Verifique se o MySQL está ligado no XAMPP e tente novamente.');
+            flash('error', 'Não foi possível entrar agora. Verifique a conexão com o banco de dados e tente novamente.');
             redirect_back();
         }
 
@@ -56,7 +56,7 @@ class AuthController extends Controller
         } catch (\Throwable $exception) {
             error_log('[Permutare] Falha no cadastro: ' . $exception->getMessage());
             set_old($_POST);
-            flash('error', 'Não foi possível criar a conta agora. Verifique se o MySQL está ligado no XAMPP e tente novamente.');
+            flash('error', 'Não foi possível criar a conta agora. Verifique a conexão com o banco de dados e tente novamente.');
             redirect_back();
         }
 

@@ -9,7 +9,12 @@
         </label>
         <label>
             Senha
-            <input type="password" name="password" required>
+            <span class="password-field">
+                <input type="password" name="password" required data-password-input>
+                <button class="password-toggle" type="button" data-password-toggle aria-label="Mostrar senha" aria-pressed="false">
+                    <span aria-hidden="true">Ver</span>
+                </button>
+            </span>
         </label>
         <button class="btn btn-primary btn-full" type="submit">Entrar</button>
     </form>

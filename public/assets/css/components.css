@@ -125,6 +125,43 @@
   width: 100%;
 }
 
+.password-field {
+  display: block;
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 74px;
+}
+
+.password-toggle {
+  align-items: center;
+  background: rgba(18, 59, 52, 0.08);
+  border: 1px solid rgba(18, 59, 52, 0.12);
+  border-radius: 999px;
+  color: var(--color-primary-dark);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 900;
+  justify-content: center;
+  min-height: 30px;
+  padding: 4px 10px;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.password-toggle:hover,
+.password-toggle:focus-visible {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: #fff;
+  outline: none;
+}
+
 .form input:focus,
 .form select:focus,
 .form textarea:focus,

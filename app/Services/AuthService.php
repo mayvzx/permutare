@@ -174,7 +174,7 @@ class AuthService
     {
         $stmt = $this->db->prepare(
             "SELECT COUNT(*) FROM login_attempts
-             WHERE success = 0
+             WHERE success = {$this->failedLoginValueSql()}
                AND attempted_at >= {$this->loginAttemptWindowSql()}
                AND (email = :email OR ip_address = :ip)"
         );
@@ -195,8 +195,13 @@ class AuthService
         $stmt->execute([
             'email' => mb_strtolower(trim($email)),
             'ip_address' => $ip,
-            'success' => $success ? 1 : 0,
+            'success' => Database::driver() === 'pgsql' ? $success : ($success ? 1 : 0),
         ]);
+    }
+
+    private function failedLoginValueSql(): string
+    {
+        return Database::driver() === 'pgsql' ? 'false' : '0';
     }
 
     private function verificationExpirationSql(): string
